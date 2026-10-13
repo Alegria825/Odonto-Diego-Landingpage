@@ -1,0 +1,17 @@
+---
+import { site, marcarPendientes } from '../data/site';
+const f = site.faq;
+---
+<section class="sec s-faq" id="faq">
+  <div class="wrap">
+    <h2 class="c">{f.titulo}</h2>
+    <div class="faq">
+      {f.items.map((it, i) => (
+        <div class="fq">
+          <button class="q" aria-expanded="false" aria-controls={`resp-${i}`}>{it.p}</button>
+          <div class="a" id={`resp-${i}`}><div><p set:html={marcarPendientes(it.r)} /></div></div>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>

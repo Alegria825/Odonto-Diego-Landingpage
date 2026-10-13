@@ -1,0 +1,6 @@
+/* Tokens que NO cambian entre temas. Colores, tipografías y formas viven en themes/*.css */
+html { color-scheme: light; }
+:root {
+  --maxw: 1120px;
+  --ease: cubic-bezier(0.2, 0.7, 0.2, 1);
+}

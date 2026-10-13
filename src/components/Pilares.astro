@@ -1,0 +1,19 @@
+---
+import { site } from '../data/site';
+import Icono from './Icono.astro';
+const p = site.pilares;
+---
+<section class="sec s-pilares">
+  <div class="wrap">
+    <h2>{p.titulo}</h2>
+    <div class="three">
+      {p.items.map((i) => (
+        <div class="box">
+          <div class="ic"><Icono nombre={i.icono} /></div>
+          <h3>{i.titulo}</h3>
+          <p>{i.texto}</p>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>

@@ -1,0 +1,16 @@
+---
+// Único componente para TODOS los botones de WhatsApp.
+// variante: "cta" (color de acento, con ícono) | "ghost" (contorno)
+// tema: opcional; prellena el mensaje con el tratamiento consultado
+import { waLink } from '../data/site';
+const { texto, variante = 'cta', tema } = Astro.props;
+---
+<a class={`btn btn--${variante}`} href={waLink(tema)} target="_blank" rel="noopener" data-wa={tema ?? 'general'}>
+  {variante === 'cta' && (
+    <svg viewBox="0 0 24 24" aria-hidden="true">
+      <path d="M12 3a9 9 0 0 0-7.700 13.600L3 21l4.500-1.200A9 9 0 1 0 12 3z" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round" />
+      <path d="M9 8.500c0 3 3.500 6.500 6.500 6.500l1-1.700-2-1-.9.800c-.9-.4-2-1.500-2.400-2.400l.8-.9-1-2z" fill="currentColor" />
+    </svg>
+  )}
+  {texto}
+</a>

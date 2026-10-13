@@ -1,0 +1,22 @@
+---
+import { Image } from 'astro:assets';
+import hero from '../assets/images/hero.jpg';
+import { site } from '../data/site';
+import BotonWhatsApp from './BotonWhatsApp.astro';
+const h = site.hero;
+---
+<section class="hero" id="top">
+  <div class="wrap hg">
+    <div>
+      <!-- La línea de confianza se muestra como etiqueta (tema A) o como insignia sobre la foto (tema C) -->
+      <p class="chip" style="--i:1">✓ {h.confianza}</p>
+      <h1 style="--i:2">{h.titulo}</h1>
+      <div class="hero__cta" style="--i:3"><BotonWhatsApp texto={h.cta} /></div>
+      <p class="mc" style="--i:4">{h.micro}</p>
+    </div>
+    <div class="media" style="--i:2">
+      <Image src={hero} alt="Foto referencial de Diego Alejandro" width={600} height={750} quality={80} format="webp" loading="eager" />
+      <p class="badge"><i>✓</i>{h.confianza}</p>
+    </div>
+  </div>
+</section>

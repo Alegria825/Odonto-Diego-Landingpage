@@ -1,0 +1,124 @@
+/* ─────────────────────────────────────────────
+   TEMA A · Marino y champán  (premium, sobrio)
+   Para crear otro tema: copia este archivo, cambia los valores
+   y regístralo en layouts/Base.astro + data/site.ts
+   ───────────────────────────────────────────── */
+[data-theme='marino-champan'] {
+  /* Color */
+  --c-bg: #f8f6f1;
+  --c-surface: #ffffff;
+  --c-ink: #1b2433;
+  --c-muted: #566075;
+  --c-brand: #14284b;          /* estructura: titulares, logo, íconos */
+  --c-soft-1: #e9edf4;         /* fondo suave frío */
+  --c-soft-2: #efe8d8;         /* fondo suave cálido (arena) */
+  --c-line: #e4ddce;
+  --c-deep: #14284b;           /* hero y cierre */
+  --c-on-deep: #f8f6f1;
+  --c-on-deep-muted: #c5cee0;
+  /* Acento: SOLO botones de agendar */
+  --c-cta: #f2b134;
+  --c-cta-h: #e2a01f;
+  --c-on-cta: #14284b;
+  --cta-shadow: 0 0 0 1px rgba(20, 40, 75, 0.12), 0 8px 20px rgba(226, 160, 31, 0.3);
+  --cta-deep-border: none;
+
+  /* Tipografía */
+  --f-display: 'Cormorant Garamond';
+  --f-body: 'Jost';
+  --fw-display: 500;
+  --fw-h3: 500;
+  --ls-display: -0.01em;
+  --ls-btn: 0.02em;
+  --ls-small: 0.12em;
+  --fs-h1: clamp(2.5rem, 6vw, 4.6rem);
+  --fs-h2: clamp(2.1rem, 4.2vw, 3.1rem);
+  --lh-h1: 1.04;
+
+  /* Superficies */
+  --r-card: 18px;
+  --r-img: 12px;
+  --ar-img: 1 / 1;
+  --sh: 0 1px 2px rgba(20, 40, 75, 0.06), 0 10px 28px rgba(20, 40, 75, 0.09);
+  --sh-h: 0 18px 44px rgba(20, 40, 75, 0.16);
+  --ic-bg: var(--c-bg);
+  --ic-border: var(--c-line);
+  --bullet: '–';
+
+  /* Hero (fondo marino + marco en arco) */
+  --hero-bg: radial-gradient(70% 90% at 88% 5%, #26437a 0, transparent 60%), var(--c-deep);
+  --hero-ink: var(--c-on-deep);
+  --hero-muted: #c5cee0;
+  --hero-radius: 0 0 40px 40px;
+  --media-ar: 4 / 5;
+  --media-radius: 999px 999px 24px 24px;
+  --media-bg: linear-gradient(170deg, #2a4579, #1a3260 60%, #14284b);
+  --media-ring: rgba(248, 246, 241, 0.28);
+  --media-shadow: none;
+  --media-pos: 50% 15%;
+  --chip-display: inline-block;
+  --badge-display: none;
+
+  /* Pasos del proceso: números grandes sin círculo */
+  --step-bg: transparent;
+  --step-color: var(--c-brand);
+  --step-radius: 0;
+  --step-font: 500 44px/1 var(--f-display), serif;
+  --step-line: 1px solid color-mix(in srgb, var(--c-brand) 30%, transparent);
+
+  /* Avatar, cierre, pie, logo */
+  --av-w: 88px;
+  --av-h: 112px;
+  --av-radius: 999px 999px 12px 12px;
+  --deep-radius: 64px 64px 0 0;
+  --footer-bg: var(--c-deep);
+  --footer-ink: #9fabc4;
+  --footer-pt: 0;
+  --logo-disc: transparent;
+  --logo-ring: var(--c-brand);
+  --logo-text: var(--c-brand);
+  --logo-smile: var(--c-brand);
+}
+@media (min-width: 800px) {
+  [data-theme='marino-champan'] { --hero-radius: 0 0 64px 64px; }
+}
+
+/* Qué secciones llevan fondo suave en este tema */
+[data-theme='marino-champan'] .s-pilares,
+[data-theme='marino-champan'] .s-faq { background: var(--c-soft-1); }
+[data-theme='marino-champan'] .s-proceso { background: var(--c-soft-2); }
+
+/* ── Variante AZUL PROFUNDO (el diseño principal, igual que los prototipos del chat) ──
+   data-mode="azul"  → siempre azul profundo (por defecto)
+   data-mode="auto"  → azul solo si el dispositivo está en modo oscuro; si no, versión clara
+   data-mode="claro" → siempre la versión clara (marfil / cielo) */
+[data-theme='marino-champan'][data-mode='azul'] {
+  color-scheme: dark;
+  --c-bg:#0b1730;
+  --c-surface:#122349;
+  --c-ink:#eef0f5;
+  --c-muted:#a9b4c8;
+  --c-brand:#c9d6f2;
+  --c-soft-1:#0f1e3e;
+  --c-soft-2:#15213a;
+  --c-line:#24365c;
+  --c-deep:#08122a;
+  --sh:0 1px 2px rgba(0,0,0,.4),0 10px 28px rgba(0,0,0,.33);
+  --sh-h:0 18px 44px rgba(0,0,0,.45);
+}
+@media (prefers-color-scheme: dark) {
+  [data-theme='marino-champan'][data-mode='auto'] {
+    color-scheme: dark;
+    --c-bg:#0b1730;
+    --c-surface:#122349;
+    --c-ink:#eef0f5;
+    --c-muted:#a9b4c8;
+    --c-brand:#c9d6f2;
+    --c-soft-1:#0f1e3e;
+    --c-soft-2:#15213a;
+    --c-line:#24365c;
+    --c-deep:#08122a;
+    --sh:0 1px 2px rgba(0,0,0,.4),0 10px 28px rgba(0,0,0,.33);
+    --sh-h:0 18px 44px rgba(0,0,0,.45);
+  }
+}

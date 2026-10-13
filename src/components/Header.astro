@@ -1,0 +1,17 @@
+---
+import { site } from '../data/site';
+import Logo from './Logo.astro';
+---
+<header class="hd" id="hd">
+  <div class="wrap hdi">
+    <a class="lg" href="#top" aria-label={`${site.nombre}, ${site.especialidad}`}>
+      <Logo />
+      <span><b>{site.nombre}</b><small>{site.especialidad}</small></span>
+    </a>
+    <nav aria-label="Principal">
+      <a href="#tratamientos">Tratamientos</a>
+      <a href="#proceso">Proceso</a>
+      <a href="#faq">Preguntas</a>
+    </nav>
+  </div>
+</header>

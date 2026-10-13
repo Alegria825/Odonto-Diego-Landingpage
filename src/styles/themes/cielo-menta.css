@@ -1,0 +1,130 @@
+/* ─────────────────────────────────────────────
+   TEMA C · Cielo y menta  (fresco, accesible)
+   ───────────────────────────────────────────── */
+[data-theme='cielo-menta'] {
+  /* Color */
+  --c-bg: #f4fafb;
+  --c-surface: #ffffff;
+  --c-ink: #14263a;
+  --c-muted: #4a5d70;
+  --c-brand: #1d4e89;
+  --c-soft-1: #e3eef8;         /* cielo */
+  --c-soft-2: #d8f1e7;         /* menta */
+  --c-line: #d6e4ea;
+  --c-deep: #1d4e89;
+  --c-on-deep: #ffffff;
+  --c-on-deep-muted: #d6e4f2;
+  /* Acento: SOLO botones de agendar (verde oscurecido para contraste AA) */
+  --c-cta: #0d8244;
+  --c-cta-h: #0a6b38;
+  --c-on-cta: #ffffff;
+  --cta-shadow: 0 8px 20px rgba(13, 130, 68, 0.3);
+  --cta-deep-border: 2px solid #ffffff;
+
+  /* Tipografía */
+  --f-display: 'Bricolage Grotesque';
+  --f-body: 'Figtree';
+  --fw-display: 600;
+  --fw-h3: 600;
+  --ls-display: -0.02em;
+  --ls-btn: 0;
+  --ls-small: 0;
+  --fs-h1: clamp(2.3rem, 5.4vw, 4.2rem);
+  --fs-h2: clamp(1.9rem, 3.8vw, 2.8rem);
+  --lh-h1: 1.04;
+
+  /* Superficies */
+  --r-card: 22px;
+  --r-img: 14px;
+  --ar-img: 4 / 3;
+  --sh: 0 1px 2px rgba(29, 78, 137, 0.06), 0 10px 28px rgba(29, 78, 137, 0.09);
+  --sh-h: 0 18px 44px rgba(29, 78, 137, 0.17);
+  --ic-bg: var(--c-soft-2);
+  --ic-border: transparent;
+  --bullet: '•';
+
+  /* Hero (claro, con manchas de color y forma orgánica) */
+  --hero-bg: radial-gradient(42% 50% at 92% 8%, var(--c-soft-2), transparent 70%),
+    radial-gradient(45% 55% at 4% 95%, var(--c-soft-1), transparent 70%);
+  --hero-ink: var(--c-brand);
+  --hero-muted: var(--c-muted);
+  --hero-radius: 0;
+  --media-ar: 1 / 1;
+  --media-radius: 58% 42% 54% 46% / 46% 56% 44% 54%;
+  --media-bg: linear-gradient(150deg, var(--c-soft-2), var(--c-soft-1));
+  --media-ring: transparent;
+  --media-shadow: var(--sh);
+  --media-pos: 50% 12%;
+  --chip-display: none;
+  --badge-display: flex;
+
+  /* Pasos del proceso: círculo menta con línea punteada */
+  --step-bg: var(--c-soft-2);
+  --step-color: var(--c-brand);
+  --step-radius: 50%;
+  --step-font: 700 20px/1 var(--f-display), sans-serif;
+  --step-line: 2px dashed color-mix(in srgb, var(--c-brand) 35%, transparent);
+
+  /* Avatar, cierre, pie, logo */
+  --av-w: 92px;
+  --av-h: 92px;
+  --av-radius: 58% 42% 54% 46% / 46% 56% 44% 54%;
+  --deep-radius: 36px;
+  --footer-bg: transparent;
+  --footer-ink: var(--c-muted);
+  --footer-pt: 32px;
+  --logo-disc: var(--c-brand);
+  --logo-ring: transparent;
+  --logo-text: var(--c-bg);
+  --logo-smile: #9fdfc4;
+}
+
+/* Secciones tipo "panel" flotante en este tema */
+[data-theme='cielo-menta'] .s-problema,
+[data-theme='cielo-menta'] .s-confianza { background: var(--c-soft-1); }
+[data-theme='cielo-menta'] .s-tratamientos { background: var(--c-soft-2); }
+[data-theme='cielo-menta'] .s-problema,
+[data-theme='cielo-menta'] .s-confianza,
+[data-theme='cielo-menta'] .s-tratamientos,
+[data-theme='cielo-menta'] .s-cierre { margin-inline: 12px; border-radius: 36px; }
+@media (min-width: 800px) {
+  [data-theme='cielo-menta'] .s-problema,
+  [data-theme='cielo-menta'] .s-confianza,
+  [data-theme='cielo-menta'] .s-tratamientos,
+  [data-theme='cielo-menta'] .s-cierre { margin-inline: 24px; border-radius: 56px; }
+}
+
+/* ── Variante AZUL PROFUNDO (el diseño principal, igual que los prototipos del chat) ──
+   data-mode="azul"  → siempre azul profundo (por defecto)
+   data-mode="auto"  → azul solo si el dispositivo está en modo oscuro; si no, versión clara
+   data-mode="claro" → siempre la versión clara (marfil / cielo) */
+[data-theme='cielo-menta'][data-mode='azul'] {
+  color-scheme: dark;
+  --c-bg:#0c1a24;
+  --c-surface:#122533;
+  --c-ink:#e8f0f5;
+  --c-muted:#9fb3c2;
+  --c-brand:#9cc4f2;
+  --c-soft-1:#14283a;
+  --c-soft-2:#12302b;
+  --c-line:#22394a;
+  --c-deep:#12355f;
+  --sh:0 1px 2px rgba(0,0,0,.4),0 10px 28px rgba(0,0,0,.33);
+  --sh-h:0 18px 44px rgba(0,0,0,.45);
+}
+@media (prefers-color-scheme: dark) {
+  [data-theme='cielo-menta'][data-mode='auto'] {
+    color-scheme: dark;
+    --c-bg:#0c1a24;
+    --c-surface:#122533;
+    --c-ink:#e8f0f5;
+    --c-muted:#9fb3c2;
+    --c-brand:#9cc4f2;
+    --c-soft-1:#14283a;
+    --c-soft-2:#12302b;
+    --c-line:#22394a;
+    --c-deep:#12355f;
+    --sh:0 1px 2px rgba(0,0,0,.4),0 10px 28px rgba(0,0,0,.33);
+    --sh-h:0 18px 44px rgba(0,0,0,.45);
+  }
+}

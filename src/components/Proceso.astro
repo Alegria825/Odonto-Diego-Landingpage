@@ -1,0 +1,14 @@
+---
+import { site } from '../data/site';
+const p = site.proceso;
+---
+<section class="sec s-proceso" id="proceso">
+  <div class="wrap">
+    <h2>{p.titulo}</h2>
+    <ol class="steps">
+      {p.pasos.map((paso) => (
+        <li class="rv"><h3>{paso.titulo}</h3><p>{paso.texto}</p></li>
+      ))}
+    </ol>
+  </div>
+</section>

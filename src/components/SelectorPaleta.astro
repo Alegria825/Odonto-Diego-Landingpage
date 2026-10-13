@@ -1,0 +1,17 @@
+---
+// Botón flotante para alternar entre las dos paletas (solo para revisión del prototipo).
+// Se activa/desactiva con SELECTOR_PALETAS en src/data/site.ts
+import { SELECTOR_PALETAS } from '../data/site';
+const opciones = [
+  { id: 'marino-champan', nombre: 'Marino y champán' },
+  { id: 'cielo-menta', nombre: 'Cielo y menta' },
+];
+---
+{SELECTOR_PALETAS && (
+  <div class="sp" role="group" aria-label="Elegir paleta de colores">
+    <span class="sp__t">Paleta</span>
+    {opciones.map((o) => (
+      <button type="button" class="sp__b" data-paleta={o.id} aria-pressed="false">{o.nombre}</button>
+    ))}
+  </div>
+)}

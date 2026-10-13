@@ -1,0 +1,19 @@
+{
+  "name": "diego-alejandro-web",
+  "type": "module",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "dev": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview"
+  },
+  "dependencies": {
+    "@astrojs/sitemap": "^3.2.0",
+    "@fontsource/bricolage-grotesque": "^5.0.0",
+    "@fontsource/cormorant-garamond": "^5.0.0",
+    "@fontsource/figtree": "^5.0.0",
+    "@fontsource/jost": "^5.0.0",
+    "astro": "^5.0.0"
+  }
+}

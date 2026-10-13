@@ -1,0 +1,21 @@
+---
+import { site } from '../data/site';
+import TarjetaTratamiento from './TarjetaTratamiento.astro';
+import BotonWhatsApp from './BotonWhatsApp.astro';
+const t = site.tratamientos;
+---
+<section class="sec s-tratamientos" id="tratamientos">
+  <div class="wrap">
+    <h2>{t.titulo}</h2>
+    <p class="lead">{t.intro}</p>
+    <div class="grid">{t.items.map((item) => <TarjetaTratamiento item={item} />)}</div>
+    <p class="mid cx"><BotonWhatsApp texto={t.cta} variante="ghost" tema={t.ctaTema} /></p>
+
+    <div class="csub">
+      <h3 class="sub">{t.cond.titulo}</h3>
+      <p>{t.cond.intro}</p>
+    </div>
+    <div class="grid cond">{t.cond.items.map((item) => <TarjetaTratamiento item={item} />)}</div>
+    <p class="mid cx"><BotonWhatsApp texto={t.cta} variante="ghost" tema={t.cond.ctaTema} /></p>
+  </div>
+</section>

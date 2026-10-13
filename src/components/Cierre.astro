@@ -1,0 +1,13 @@
+---
+import { site } from '../data/site';
+import BotonWhatsApp from './BotonWhatsApp.astro';
+const c = site.cierre;
+---
+<section class="sec s-cierre" id="cierre">
+  <div class="wrap">
+    <h2>{c.titulo}</h2>
+    <p>{c.texto}</p>
+    <BotonWhatsApp texto={c.cta} />
+    <p class="info">{c.contacto}</p>
+  </div>
+</section>

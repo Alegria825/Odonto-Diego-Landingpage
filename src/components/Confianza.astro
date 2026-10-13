@@ -1,0 +1,26 @@
+---
+import { site, marcarPendientes } from '../data/site';
+import Icono from './Icono.astro';
+const c = site.confianza;
+---
+<section class="sec s-confianza">
+  <div class="wrap">
+    <h2>{c.titulo}</h2>
+    <div class="dg">
+      {c.items.map((i) => (
+        <div class="box">
+          <div class="ic"><Icono nombre={i.icono} /></div>
+          <h3>{i.titulo}</h3>
+          <p set:html={marcarPendientes(i.texto)} />
+        </div>
+      ))}
+    </div>
+    <div class="diego">
+      <div class="av">{c.diego.iniciales}</div>
+      <div>
+        <h3>{c.diego.titulo}</h3>
+        <p set:html={marcarPendientes(c.diego.texto)} />
+      </div>
+    </div>
+  </div>
+</section>

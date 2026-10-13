@@ -1,0 +1,22 @@
+---
+import { site } from '../data/site';
+import BotonWhatsApp from './BotonWhatsApp.astro';
+const p = site.problema;
+---
+<section class="sec s-problema">
+  <div class="wrap">
+    <h2 class="c">{p.titulo}</h2>
+    <div class="two">
+      <div class="box">
+        <h3>{p.dolorTitulo}</h3>
+        <ul>{p.dolores.map((d) => <li>{d}</li>)}</ul>
+      </div>
+      <div class="box ok">
+        <h3>{p.solucionTitulo}</h3>
+        <ul>{p.soluciones.map((s) => <li>{s}</li>)}</ul>
+      </div>
+    </div>
+    <p class="c cl">{p.cierre}</p>
+    <p class="mid"><BotonWhatsApp texto={p.cta} /></p>
+  </div>
+</section>

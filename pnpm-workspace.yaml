@@ -1,0 +1,5 @@
+# pnpm 10.26+ / 11: dependencias a las que se permite ejecutar sus scripts de instalación.
+# sharp = optimización de imágenes · esbuild = compilador que usa Astro/Vite
+allowBuilds:
+  esbuild: true
+  sharp: true

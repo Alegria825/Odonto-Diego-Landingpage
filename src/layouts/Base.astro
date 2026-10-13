@@ -1,0 +1,73 @@
+---
+// Fuentes autoalojadas (el navegador solo descarga las del tema activo)
+import '@fontsource/cormorant-garamond/500.css';
+import '@fontsource/cormorant-garamond/600.css';
+import '@fontsource/jost/400.css';
+import '@fontsource/jost/500.css';
+import '@fontsource/jost/600.css';
+import '@fontsource/bricolage-grotesque/500.css';
+import '@fontsource/bricolage-grotesque/600.css';
+import '@fontsource/bricolage-grotesque/700.css';
+import '@fontsource/figtree/400.css';
+import '@fontsource/figtree/500.css';
+import '@fontsource/figtree/600.css';
+
+// Estilos: tokens → temas → base
+import '../styles/tokens.css';
+import '../styles/themes/marino-champan.css';
+import '../styles/themes/cielo-menta.css';
+import '../styles/base.css';
+
+import { site, THEME, MODE } from '../data/site';
+
+const { title = site.seo.titulo, description = site.seo.descripcion } = Astro.props;
+const canonical = new URL(Astro.url.pathname, Astro.site);
+// Mientras el sitio viva en github.io es un prototipo: que Google no lo indexe
+const esPrototipo = Astro.site?.hostname.endsWith('github.io');
+
+// Datos estructurados para búsquedas locales (revisar antes de publicar)
+const ld = {
+  '@context': 'https://schema.org',
+  '@type': 'Dentist',
+  name: `${site.nombre} · ${site.especialidad}`,
+  description,
+  url: canonical.href,
+  telephone: `+${site.whatsapp}`,
+  areaServed: site.ciudad,
+};
+---
+<!doctype html>
+<html lang="es" data-theme={THEME} data-mode={MODE}>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <link rel="canonical" href={canonical} />
+    {esPrototipo && <meta name="robots" content="noindex, nofollow" />}
+    <link rel="icon" type="image/svg+xml" href={`${import.meta.env.BASE_URL.replace(/\/$/, '')}/favicon.svg`} />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={canonical} />
+    <script type="application/ld+json" set:html={JSON.stringify(ld)} />
+    <!-- Marca JS activo; permite probar ?theme=cielo-menta y ?mode=azul -->
+    <script is:inline>
+      document.documentElement.classList.add('js');
+      try {
+        var g = localStorage.getItem('diego-paleta');
+        if (g === 'marino-champan' || g === 'cielo-menta') document.documentElement.dataset.theme = g;
+      } catch (e) {}
+      var t = new URLSearchParams(location.search).get('theme');
+      if (t === 'marino-champan' || t === 'cielo-menta') document.documentElement.dataset.theme = t;
+      var m = new URLSearchParams(location.search).get('mode');
+      if (m === 'auto' || m === 'azul' || m === 'claro') document.documentElement.dataset.mode = m;
+    </script>
+  </head>
+  <body>
+    <slot />
+    <script>
+      import '../scripts/interacciones.ts';
+    </script>
+  </body>
+</html>
